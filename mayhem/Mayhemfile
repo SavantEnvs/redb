@@ -1,0 +1,11 @@
+project: savantenvs/redb
+target: fuzz_redb-buggy-mhh-run-124
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_redb-buggy-mhh-run-124/testsuite
+
+cmds:
+  # libFuzzer binary; Mayhem feeds inputs on stdin (no @@ = stdin input).
+  - cmd: /mayhem/fuzz_redb
+    libfuzzer: true
